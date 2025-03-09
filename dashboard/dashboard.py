@@ -7,16 +7,16 @@ import numpy as np
 # Load dataset
 @st.cache_data
 def load_data():
-    all_data = pd.read_csv("main_data.csv")
+    data = pd.read_csv("main_data.csv")
     
     # Konversi tanggal dan waktu
-    all_data["date"] = pd.to_datetime(all_data[["year", "month", "day", "hour"]])
-    all_data.set_index("date", inplace=True)
+    data["date"] = pd.to_datetime(data[["year", "month", "day", "hour"]])
+    data.set_index("date", inplace=True)
 
-    return all_data
+    return data
 
 # Load data
-all_data = load_data()
+data = load_data()
 
 # Sidebar untuk memilih visualisasi
 st.sidebar.header("Pengaturan Analisis")
@@ -30,7 +30,7 @@ if analysis_type == "Tren Polusi Udara":
     st.subheader("Tren Polusi Udara Harian")
 
     # Resampling data per hari
-    df_daily = all_data.select_dtypes(include=['number']).resample("D").mean()
+    df_daily = data.select_dtypes(include=['number']).resample("D").mean()
 
     # Plot Tren Polusi Udara Harian
     fig, ax = plt.subplots(figsize=(12, 6))
@@ -51,7 +51,7 @@ elif analysis_type == "Heatmap Korelasi":
 
     # Korelasi antara variabel numerik
     fig, ax = plt.subplots(figsize=(10, 8))
-    sns.heatmap(all_data.select_dtypes(include=np.number).corr(), annot=True, cmap="coolwarm", fmt=".2f", linewidths=0.5, ax=ax)
+    sns.heatmap(data.select_dtypes(include=np.number).corr(), annot=True, cmap="coolwarm", fmt=".2f", linewidths=0.5, ax=ax)
     ax.set_title("Heatmap Korelasi")
 
     st.pyplot(fig)
@@ -65,7 +65,7 @@ elif analysis_type == "Pengaruh Arah Angin":
 
     # Barplot rata-rata PM2.5 berdasarkan arah angin
     fig, ax = plt.subplots(figsize=(10, 5))
-    sns.barplot(x=all_data["wd"], y=all_data["PM2.5"], order=order, ci=None, palette="coolwarm", ax=ax)
+    sns.barplot(x=data["wd"], y=data["PM2.5"], order=order, ci=None, palette="coolwarm", ax=ax)
     ax.set_title("Rata-rata PM2.5 Berdasarkan Arah Angin")
     ax.set_xlabel("Arah Angin (wd)")
     ax.set_ylabel("Konsentrasi PM2.5")
@@ -74,7 +74,7 @@ elif analysis_type == "Pengaruh Arah Angin":
 
     # Boxplot distribusi PM2.5 berdasarkan arah angin
     fig, ax = plt.subplots(figsize=(12, 6))
-    sns.boxplot(x=all_data["wd"], y=all_data["PM2.5"], order=order, palette="coolwarm", ax=ax)
+    sns.boxplot(x=data["wd"], y=data["PM2.5"], order=order, palette="coolwarm", ax=ax)
     ax.set_title("Distribusi PM2.5 Berdasarkan Arah Angin")
     ax.set_xlabel("Arah Angin (wd)")
     ax.set_ylabel("PM2.5 (µg/m³)")
