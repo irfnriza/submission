@@ -7,7 +7,7 @@ import numpy as np
 # Load dataset
 @st.cache_data
 def load_data():
-    data = pd.read_csv("main_data.csv")
+    data = pd.read_csv("dashboard/main_data.csv")
     
     # Konversi tanggal dan waktu
     data["date"] = pd.to_datetime(data[["year", "month", "day", "hour"]])
