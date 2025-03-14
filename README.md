@@ -13,17 +13,32 @@ To set up the project, follow these steps:
 1. Clone the repository:
    ```bash
    git clone https://github.com/irfnriza/submission
-   cd your-repository
    ```
+
 2. Create a virtual environment (optional but recommended):
    ```bash
    python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   source venv/bin/activate 
    ```
-3. Install the required dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
+
+4. Setup Environment
+
+   - Shell/Terminal
+      ```
+      mkdir submission
+      cd submission
+      pipenv install
+      pipenv shell
+      pip install -r requirements.txt
+      ```
+   
+   - for Anaconda
+      ```
+      conda create --name main-ds python=3.9
+      conda activate main-ds
+      pip install -r requirements.txt
+      ```
+
 4. Ensure Jupyter Notebook is installed (if using Jupyter):
    ```bash
    pip install jupyter
@@ -34,6 +49,11 @@ To set up the project, follow these steps:
 To run the project, open Jupyter Notebook and execute the analysis scripts:
 ```bash
 jupyter notebook
+```
+
+To run run steamlit app (dashboard)
+```
+streamlit run dashboard.py
 ```
 
 Inside the notebook, you will find:
