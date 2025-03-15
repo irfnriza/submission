@@ -10,7 +10,7 @@ This project focuses on data analysis using Python, covering data preprocessing,
 
 To set up the project, follow these steps:
 
-1. Clone the repository:
+1. Clone the repository (if you don have a file):
    ```bash
    git clone https://github.com/irfnriza/submission
    ```
