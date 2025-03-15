@@ -13,7 +13,7 @@ st.set_page_config(layout="wide", page_title="Air Pollution Dashboard")
 # Load dataset
 @st.cache_data
 def load_data():
-    df = pd.read_csv("main_data.csv")
+    df = pd.read_csv("dashboard/main_data.csv")
     df["date"] = pd.to_datetime(df[["year", "month", "day"]])
     df["weekday"] = df["date"].dt.dayofweek  # 0 = Senin, 6 = Minggu
     return df
