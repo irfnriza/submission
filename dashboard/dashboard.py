@@ -242,7 +242,6 @@ with tab2:
 
 
 with tab3:
-    st.subheader("Analisis Lanjutan dan Prediksi")
     
     # Section for spatial analysis
         # Section for spatial analysis
