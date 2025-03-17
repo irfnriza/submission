@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_cca97c8b7720e113b85983675b1bbd92 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+    <script src="https://cdn.jsdelivr.net/gh/python-visualization/folium@main/folium/templates/leaflet_heat.min.js"></script>
+</head>
+<body>
+    
+    
+    <div style="position: fixed; bottom: 50px; left: 50px; width: 150px; height: 120px; 
+        border: 2px solid grey; z-index: 9999; font-size: 14px; background-color: white;
+        padding: 10px; border-radius: 5px;">
+        <p><strong>PM2.5 Level</strong></p>
+        <p><span style="color: green;">&#9679;</span> 0-50 (Baik)</p>
+        <p><span style="color: yellow;">&#9679;</span> 51-100 (Sedang)</p>
+        <p><span style="color: orange;">&#9679;</span> 101-150 (Tidak Sehat)</p>
+        <p><span style="color: red;">&#9679;</span> >150 (Berbahaya)</p>
+    </div>
+    
+    
+            <div class="folium-map" id="map_cca97c8b7720e113b85983675b1bbd92" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_cca97c8b7720e113b85983675b1bbd92 = L.map(
+                "map_cca97c8b7720e113b85983675b1bbd92",
+                {
+                    center: [39.9042, 116.4074],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 10,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_335dd36889292713c2ece57242d6f631 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_335dd36889292713c2ece57242d6f631.addTo(map_cca97c8b7720e113b85983675b1bbd92);
+        
+    
+            var circle_marker_3252573e36f105bcd06ef880ea6a2870 = L.circleMarker(
+                [39.982, 116.417],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.244564773191664, "stroke": true, "weight": 3}
+            ).addTo(map_cca97c8b7720e113b85983675b1bbd92);
+        
+    
+        var popup_3494c81f4219a6467d02767a86d5754d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_974f9dc815614a0429672bb4ae88b029 = $(`<div id="html_974f9dc815614a0429672bb4ae88b029" style="width: 100.0%; height: 100.0%;">Station: Aotizhongxin<br>PM2.5: 82.45</div>`)[0];
+                popup_3494c81f4219a6467d02767a86d5754d.setContent(html_974f9dc815614a0429672bb4ae88b029);
+            
+        
+
+        circle_marker_3252573e36f105bcd06ef880ea6a2870.bindPopup(popup_3494c81f4219a6467d02767a86d5754d)
+        ;
+
+        
+    
+    
+            var circle_marker_84df592dc11bfc94eaad3c7479d1a34a = L.circleMarker(
+                [40.218, 116.231],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.239324618736383, "stroke": true, "weight": 3}
+            ).addTo(map_cca97c8b7720e113b85983675b1bbd92);
+        
+    
+        var popup_646276761bf7675f7f3432ef44da2a26 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6f8f93a4789a446ed28d2eb32d6028dc = $(`<div id="html_6f8f93a4789a446ed28d2eb32d6028dc" style="width: 100.0%; height: 100.0%;">Station: Changping<br>PM2.5: 72.39</div>`)[0];
+                popup_646276761bf7675f7f3432ef44da2a26.setContent(html_6f8f93a4789a446ed28d2eb32d6028dc);
+            
+        
+
+        circle_marker_84df592dc11bfc94eaad3c7479d1a34a.bindPopup(popup_646276761bf7675f7f3432ef44da2a26)
+        ;
+
+        
+    
+    
+            var circle_marker_4168cc312127089c60970e7a84ed97ab = L.circleMarker(
+                [40.286, 116.172],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.4764301582893635, "stroke": true, "weight": 3}
+            ).addTo(map_cca97c8b7720e113b85983675b1bbd92);
+        
+    
+        var popup_d6df7cff24531df2ed53da30e665f135 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_fe10d3b448e445cc4dd2245708362343 = $(`<div id="html_fe10d3b448e445cc4dd2245708362343" style="width: 100.0%; height: 100.0%;">Station: Dingling<br>PM2.5: 64.76</div>`)[0];
+                popup_d6df7cff24531df2ed53da30e665f135.setContent(html_fe10d3b448e445cc4dd2245708362343);
+            
+        
+
+        circle_marker_4168cc312127089c60970e7a84ed97ab.bindPopup(popup_d6df7cff24531df2ed53da30e665f135)
+        ;
+
+        
+    
+    
+            var circle_marker_670cebeeb9ad81c5e72b01d99dbe5800 = L.circleMarker(
+                [39.929, 116.417],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.713752577319587, "stroke": true, "weight": 3}
+            ).addTo(map_cca97c8b7720e113b85983675b1bbd92);
+        
+    
+        var popup_e8b3a0e7cd0c4ae6224937c2331d0e62 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6c14fc3874928519adf76dd0a526bd72 = $(`<div id="html_6c14fc3874928519adf76dd0a526bd72" style="width: 100.0%; height: 100.0%;">Station: Dongsi<br>PM2.5: 87.14</div>`)[0];
+                popup_e8b3a0e7cd0c4ae6224937c2331d0e62.setContent(html_6c14fc3874928519adf76dd0a526bd72);
+            
+        
+
+        circle_marker_670cebeeb9ad81c5e72b01d99dbe5800.bindPopup(popup_e8b3a0e7cd0c4ae6224937c2331d0e62)
+        ;
+
+        
+    
+    
+            var circle_marker_ac4a426ca431590b0d2a3b2a9b0da6cd = L.circleMarker(
+                [39.929, 116.339],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.210329382579934, "stroke": true, "weight": 3}
+            ).addTo(map_cca97c8b7720e113b85983675b1bbd92);
+        
+    
+        var popup_84d6bb62c52c888c37fe2bf42f9c7fff = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_989871ce488d82116c4aed2c1c751b90 = $(`<div id="html_989871ce488d82116c4aed2c1c751b90" style="width: 100.0%; height: 100.0%;">Station: Guanyuan<br>PM2.5: 82.10</div>`)[0];
+                popup_84d6bb62c52c888c37fe2bf42f9c7fff.setContent(html_989871ce488d82116c4aed2c1c751b90);
+            
+        
+
+        circle_marker_ac4a426ca431590b0d2a3b2a9b0da6cd.bindPopup(popup_84d6bb62c52c888c37fe2bf42f9c7fff)
+        ;
+
+        
+    
+    
+            var circle_marker_448b8e962cd12d4a44df7aa6bd4a7728 = L.circleMarker(
+                [39.914, 116.184],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.154828340856245, "stroke": true, "weight": 3}
+            ).addTo(map_cca97c8b7720e113b85983675b1bbd92);
+        
+    
+        var popup_bdf2d920555b41ccddfeb353ac84eb2a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_83c36524b68ae1e38a273a8775091cf6 = $(`<div id="html_83c36524b68ae1e38a273a8775091cf6" style="width: 100.0%; height: 100.0%;">Station: Gucheng<br>PM2.5: 81.55</div>`)[0];
+                popup_bdf2d920555b41ccddfeb353ac84eb2a.setContent(html_83c36524b68ae1e38a273a8775091cf6);
+            
+        
+
+        circle_marker_448b8e962cd12d4a44df7aa6bd4a7728.bindPopup(popup_bdf2d920555b41ccddfeb353ac84eb2a)
+        ;
+
+        
+    
+    
+            var circle_marker_c498201b425a5f2110f847dac4649ef8 = L.circleMarker(
+                [40.313, 116.637],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.828110923423424, "stroke": true, "weight": 3}
+            ).addTo(map_cca97c8b7720e113b85983675b1bbd92);
+        
+    
+        var popup_bcd9f03ff4d66d3a69f061fe24f7008d = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9adebbff0e61ea31c6fe9449015dc9ef = $(`<div id="html_9adebbff0e61ea31c6fe9449015dc9ef" style="width: 100.0%; height: 100.0%;">Station: Huairou<br>PM2.5: 68.28</div>`)[0];
+                popup_bcd9f03ff4d66d3a69f061fe24f7008d.setContent(html_9adebbff0e61ea31c6fe9449015dc9ef);
+            
+        
+
+        circle_marker_c498201b425a5f2110f847dac4649ef8.bindPopup(popup_bcd9f03ff4d66d3a69f061fe24f7008d)
+        ;
+
+        
+    
+    
+            var circle_marker_f9d313fa915bba8d443d4c15d5784ea8 = L.circleMarker(
+                [39.933, 116.461],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.44003541751805, "stroke": true, "weight": 3}
+            ).addTo(map_cca97c8b7720e113b85983675b1bbd92);
+        
+    
+        var popup_5bfa6245f9ba17a5947dec023c1f00f9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_ea857e5b50232d5458d6bd5a9a6b92a6 = $(`<div id="html_ea857e5b50232d5458d6bd5a9a6b92a6" style="width: 100.0%; height: 100.0%;">Station: Nongzhanguan<br>PM2.5: 84.40</div>`)[0];
+                popup_5bfa6245f9ba17a5947dec023c1f00f9.setContent(html_ea857e5b50232d5458d6bd5a9a6b92a6);
+            
+        
+
+        circle_marker_f9d313fa915bba8d443d4c15d5784ea8.bindPopup(popup_5bfa6245f9ba17a5947dec023c1f00f9)
+        ;
+
+        
+    
+    
+            var circle_marker_e500fbb4b65b9156f4e1de88127cfc2d = L.circleMarker(
+                [40.128, 116.654],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.592247160257287, "stroke": true, "weight": 3}
+            ).addTo(map_cca97c8b7720e113b85983675b1bbd92);
+        
+    
+        var popup_68b017545fed45530127a31f19e90645 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_28778e29d981386b0e016948201bb713 = $(`<div id="html_28778e29d981386b0e016948201bb713" style="width: 100.0%; height: 100.0%;">Station: Shunyi<br>PM2.5: 75.92</div>`)[0];
+                popup_68b017545fed45530127a31f19e90645.setContent(html_28778e29d981386b0e016948201bb713);
+            
+        
+
+        circle_marker_e500fbb4b65b9156f4e1de88127cfc2d.bindPopup(popup_68b017545fed45530127a31f19e90645)
+        ;
+
+        
+    
+    
+            var circle_marker_2ad9f05e95180c65e8e2042f4a6d82a4 = L.circleMarker(
+                [39.886, 116.407],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.319565217391304, "stroke": true, "weight": 3}
+            ).addTo(map_cca97c8b7720e113b85983675b1bbd92);
+        
+    
+        var popup_5c2e18731b94d340dd8c993963a77287 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_00a5e487df73f491b43b3b0efcb6a347 = $(`<div id="html_00a5e487df73f491b43b3b0efcb6a347" style="width: 100.0%; height: 100.0%;">Station: Tiantan<br>PM2.5: 83.20</div>`)[0];
+                popup_5c2e18731b94d340dd8c993963a77287.setContent(html_00a5e487df73f491b43b3b0efcb6a347);
+            
+        
+
+        circle_marker_2ad9f05e95180c65e8e2042f4a6d82a4.bindPopup(popup_5c2e18731b94d340dd8c993963a77287)
+        ;
+
+        
+    
+    
+            var circle_marker_8e01b49ac155feb3eb635eb183faf316 = L.circleMarker(
+                [39.993, 116.306],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.151096730245232, "stroke": true, "weight": 3}
+            ).addTo(map_cca97c8b7720e113b85983675b1bbd92);
+        
+    
+        var popup_1297fe6ae441059f4e8083748ab62fb1 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0b11a43793621c3dadcf47ff6f359064 = $(`<div id="html_0b11a43793621c3dadcf47ff6f359064" style="width: 100.0%; height: 100.0%;">Station: Wanliu<br>PM2.5: 91.51</div>`)[0];
+                popup_1297fe6ae441059f4e8083748ab62fb1.setContent(html_0b11a43793621c3dadcf47ff6f359064);
+            
+        
+
+        circle_marker_8e01b49ac155feb3eb635eb183faf316.bindPopup(popup_1297fe6ae441059f4e8083748ab62fb1)
+        ;
+
+        
+    
+    
+            var circle_marker_81e8000019784a408163f13cd769b0b4 = L.circleMarker(
+                [39.882, 116.366],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "yellow", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.39601310759148, "stroke": true, "weight": 3}
+            ).addTo(map_cca97c8b7720e113b85983675b1bbd92);
+        
+    
+        var popup_43e45828fb092a7f4a7d5fa346cc741b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d0d3c964250101808f014c1c6621da6c = $(`<div id="html_d0d3c964250101808f014c1c6621da6c" style="width: 100.0%; height: 100.0%;">Station: Wanshouxigong<br>PM2.5: 83.96</div>`)[0];
+                popup_43e45828fb092a7f4a7d5fa346cc741b.setContent(html_d0d3c964250101808f014c1c6621da6c);
+            
+        
+
+        circle_marker_81e8000019784a408163f13cd769b0b4.bindPopup(popup_43e45828fb092a7f4a7d5fa346cc741b)
+        ;
+
+        
+    
+    
+            var heat_map_8142d1c6e5b220532ca8427a0034b40a = L.heatLayer(
+                [[39.982, 116.417, 82.44564773191664], [40.218, 116.231, 72.39324618736383], [40.286, 116.172, 64.76430158289364], [39.929, 116.417, 87.13752577319588], [39.929, 116.339, 82.10329382579934], [39.914, 116.184, 81.54828340856244], [40.313, 116.637, 68.28110923423424], [39.933, 116.461, 84.4003541751805], [40.128, 116.654, 75.92247160257287], [39.886, 116.407, 83.19565217391305], [39.993, 116.306, 91.51096730245231], [39.882, 116.366, 83.9601310759148]],
+                {
+  "minOpacity": 0.5,
+  "maxZoom": 1,
+  "radius": 15,
+  "blur": 10,
+}
+            );
+        
+    
+            heat_map_8142d1c6e5b220532ca8427a0034b40a.addTo(map_cca97c8b7720e113b85983675b1bbd92);
+        
+</script>
+</html>
