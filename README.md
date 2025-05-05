@@ -1,6 +1,3 @@
-# Project Submission
-
-This repository contains the submission for **Belajar Analisis Data dengan Python** from the Dicoding platform.
 
 ## Description
 
